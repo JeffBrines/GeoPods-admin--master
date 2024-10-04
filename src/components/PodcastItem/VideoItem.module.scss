@@ -1,0 +1,149 @@
+@import "../../scss/colors.scss";
+@import "../../scss/repeat.scss";
+
+.video {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  color: #252733;
+  &__item {
+    width: 100%;
+    min-height: 92px;
+    border-bottom: 1px solid #dfe0eb;
+    padding: 10px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s ease;
+    &:hover {
+      background-color: darken(#fff, 4%);
+    }
+  }
+
+  &__contentSection {
+    &Title {
+      display: none;
+    }
+    position: relative;
+    right: 16px;
+    width: 25%;
+    max-width: 200px;
+    margin-left: 16px;
+    text-align: center;
+
+    p {
+      display: block;
+      max-width: 100%;
+      word-wrap: break-word;
+    }
+    &:first-child {
+      min-width: 200px;
+    }
+    // &:nth-child(2) {
+    //   max-height: 200px;
+    //   overflow-y: scroll;
+    // }
+  }
+
+  &__setting {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: darken(#fff, 10%);
+    }
+
+    &Options {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: transform 0.2s ease;
+      transform: scale(0);
+      position: absolute;
+      top: -50px;
+      border: 1px solid rgb(209, 209, 209);
+      border-radius: 16px;
+      background-color: #fff;
+      min-width: 80px;
+      min-height: 50px;
+      box-shadow: 1px 10px 16px -1px rgba(0, 0, 0, 0.2);
+
+      button {
+        @extend %button;
+
+        svg {
+          width: 25px;
+          height: 25px;
+          path {
+            transition: fill 0.2s ease;
+            fill: #000;
+          }
+        }
+
+        &:hover {
+          svg path {
+            fill: $red;
+          }
+        }
+      }
+    }
+
+    &:hover > &Options,
+    &Options:hover {
+      transform: scale(1);
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  .video {
+    &__item {
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+    }
+
+    &__contentSection {
+      max-width: unset;
+      width: 100%;
+      position: relative;
+      right: 0;
+      margin-left: 0;
+      margin-bottom: 16px;
+      text-align: left;
+      &:first-child {
+        min-width: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &Title {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 18px;
+        color: #9fa2b4;
+        margin-bottom: 16px;
+      }
+    }
+    &__setting {
+      & > svg {
+        transform: rotate(90deg);
+      }
+      align-self: flex-end;
+    }
+  }
+}

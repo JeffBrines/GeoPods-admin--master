@@ -1,0 +1,92 @@
+@import "../../scss/repeat.scss";
+@import "../../scss/colors.scss";
+
+.overview {
+  &__case {
+    width: 100%;
+    // margin-left: -30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &Item {
+      margin-top: 10px;
+      // margin-left: 30px;
+      width: 260px;
+      height: 135px;
+      background-color: #fff;
+      border: 1px solid #dfe0eb;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 24px;
+        letter-spacing: 0.4px;
+        color: #9fa2b4;
+        transition: all 0.2s ease;
+
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-weight: 700;
+        font-size: 40px;
+        letter-spacing: 1px;
+        color: #252733;
+        transition: all 0.2s ease;
+      }
+
+      transition: all 0.2s ease;
+      &:hover {
+        border-color: $mainBlue;
+        box-shadow: 1px 10px 16px -1px rgba(0, 0, 0, 0.2);
+        h2 {
+          color: $mainBlue;
+        }
+        h3 {
+          color: $mainBlue;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .overview {
+    &__case {
+      &Item {
+        width: 130px;
+        height: 130px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 767px) {
+  .overview {
+    &__case {
+      &Item {
+        width: 200px;
+        height: 135px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .overview {
+    &__case {
+      &Item {
+        width: 190px;
+        height: 135px;
+      }
+    }
+  }
+}

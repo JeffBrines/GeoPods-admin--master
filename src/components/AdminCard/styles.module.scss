@@ -1,0 +1,136 @@
+@import "../../scss/colors.scss";
+@import "../../scss/repeat.scss";
+
+.admin {
+  &__item {
+    width: 100%;
+    height: 92px;
+    border-bottom: 1px solid #dfe0eb;
+
+    padding: 10px 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all 0.2s ease;
+    &:hover {
+      background-color: darken(#fff, 4%);
+    }
+  }
+  &__name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.2px;
+    color: #252733;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+
+    p {
+      width: 200px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0.2px;
+      color: #252733;
+      margin-right: 10px;
+    }
+  }
+
+  &__check {
+    margin-right: 16px;
+    input {
+      display: none;
+      &:checked + label {
+        background: $orange;
+        &::before {
+          left: 44px;
+        }
+      }
+    }
+
+    label {
+      transition: background-color 0.3s;
+      cursor: pointer;
+      display: block;
+      width: 73px;
+      height: 33px;
+      background-color: #c5c7cd;
+      border-radius: 16.5px;
+      position: relative;
+      &::before {
+        content: "";
+        width: 21px;
+        height: 21px;
+        border-radius: 50%;
+        background: #fff;
+        position: absolute;
+        left: 7px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s;
+      }
+    }
+  }
+
+  &__setting {
+    position: relative;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: darken(#fff, 10%);
+    }
+
+    &Options {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transition: transform 0.2s ease;
+      transform: scale(0);
+      position: absolute;
+      top: -50px;
+      border: 1px solid rgb(209, 209, 209);
+      border-radius: 16px;
+      background-color: #fff;
+      min-width: 80px;
+      min-height: 50px;
+      box-shadow: 1px 10px 16px -1px rgba(0, 0, 0, 0.2);
+
+      button {
+        @extend %button;
+
+        svg {
+          width: 25px;
+          height: 25px;
+          path {
+            transition: fill 0.2s ease;
+            fill: #000;
+          }
+        }
+
+        &:hover {
+          svg path {
+            fill: $red;
+          }
+        }
+      }
+    }
+
+    &:hover > &Options,
+    &Options:hover {
+      transform: scale(1);
+    }
+  }
+}
